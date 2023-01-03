@@ -41,7 +41,6 @@ pipeline {
        }
      }
    }
-
 	 
 	 stage('Deploy to remote server') {
      steps {
