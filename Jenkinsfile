@@ -15,9 +15,9 @@ pipeline {
    stage('Build database') {
      steps {
        dir('database') {
-         sh 'docker build . -t cilist-pipeline-db:$GIT_COMMIT_SHORT'
+         sh 'docker build . -t cilist-pipeline-db:$BUILD_NUMBER'
          sh 'docker tag cilist-pipeline-db:$GIT_COMMIT_SHORT heryfik/cilist-pipeline-db:$GIT_COMMIT_SHORT'
-         sh 'docker push heryfik/cilist-pipeline-db:$GIT_COMMIT_SHORT'
+         sh 'docker push heryfik/cilist-pipeline-db:$BUILD_NUMBER
        }
      }
    }
