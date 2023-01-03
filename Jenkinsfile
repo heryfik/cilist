@@ -16,8 +16,8 @@ pipeline {
      steps {
        dir('database') {
          sh 'docker build . -t cilist-pipeline-db:$GIT_COMMIT_SHORT'
-         sh 'docker tag cilist-pipeline-db:$GIT_COMMIT_SHORT profesorgreen36/cilist-pipeline-db:$GIT_COMMIT_SHORT'
-         sh 'docker push profesorgreen36/cilist-pipeline-db:$GIT_COMMIT_SHORT'
+         sh 'docker tag cilist-pipeline-db:$GIT_COMMIT_SHORT heryfik/cilist-pipeline-db:$GIT_COMMIT_SHORT'
+         sh 'docker push heryfik/cilist-pipeline-db:$GIT_COMMIT_SHORT'
        }
      }
    }
@@ -26,8 +26,8 @@ pipeline {
      steps {
        dir('backend') {
          sh 'docker build . -t cilist-pipeline-be:$GIT_COMMIT_SHORT'
-         sh 'docker tag cilist-pipeline-be:$GIT_COMMIT_SHORT profesorgreen36/cilist-pipeline-be:$GIT_COMMIT_SHORT'
-         sh 'docker push profesorgreen36/cilist-pipeline-be:$GIT_COMMIT_SHORT'
+         sh 'docker tag cilist-pipeline-be:$GIT_COMMIT_SHORT heryfik/cilist-pipeline-be:$GIT_COMMIT_SHORT'
+         sh 'docker push heryfik/cilist-pipeline-be:$GIT_COMMIT_SHORT'
        }
      }
    }
@@ -36,8 +36,8 @@ pipeline {
      steps {
        dir('frontend') {
          sh 'docker build . -t cilist-pipeline-fe:$GIT_COMMIT_SHORT'
-         sh 'docker tag cilist-pipeline-fe:$GIT_COMMIT_SHORT profesorgreen36/cilist-pipeline-fe:$GIT_COMMIT_SHORT'
-         sh 'docker push profesorgreen36/cilist-pipeline-fe:$GIT_COMMIT_SHORT'
+         sh 'docker tag cilist-pipeline-fe:$GIT_COMMIT_SHORT heryfik/cilist-pipeline-fe:$GIT_COMMIT_SHORT'
+         sh 'docker push heryfik/cilist-pipeline-fe:$GIT_COMMIT_SHORT'
        }
      }
    }
