@@ -1,5 +1,8 @@
 pipeline {
  agent any
+	 options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))   
+  }
 
  environment {
    GIT_COMMIT_SHORT = sh(returnStdout: true, script: '''echo $GIT_COMMIT | head -c 7''')
