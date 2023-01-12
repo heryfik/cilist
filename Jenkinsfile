@@ -32,18 +32,15 @@ pipeline {
          sh 'docker tag cilist-pipeline-be:$GIT_COMMIT_SHORT heryfik/cilist-pipeline-be:$GIT_COMMIT_SHORT'
          sh 'docker push heryfik/cilist-pipeline-be:$GIT_COMMIT_SHORT'
        }
-     }
-   }
-
-   stage('Build frontend') {
-     steps {
-       dir('frontend') {
+	   
+	   dir('frontend') {
          sh 'docker build . -t cilist-pipeline-fe:$GIT_COMMIT_SHORT'
          sh 'docker tag cilist-pipeline-fe:$GIT_COMMIT_SHORT heryfik/cilist-pipeline-fe:$GIT_COMMIT_SHORT'
          sh 'docker push heryfik/cilist-pipeline-fe:$GIT_COMMIT_SHORT'
        }
      }
    }
+
 	 
 	 stage('Deploy to remote server') {
      steps {
